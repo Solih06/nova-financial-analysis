@@ -22,11 +22,15 @@ I processed over **1.4 million financial headlines** to establish a baseline for
 Using keyword extraction, I identified that the dataset is primarily **event-driven**. Dominant keywords include "Earnings," "Dividend," "Quarterly," and "Bullish." This confirms that sentiment signals are tied to corporate performance cycles.
 ![Topic Analysis](visuals/wordcloud_topics.png)
 
-#### **B. Headline Density & Modeling Strategy**
+#### **B. Publisher Dominance**
+Analysis identified **Benzinga** as the primary news source. This dominance suggests that our sentiment model will be heavily influenced by their editorial style, which we will account for in Task 3.
+![Top Publishers](visuals/top_publishers.png)
+
+#### **C. Headline Density & Modeling Strategy**
 Peak headline length is **25–50 characters**. This high density suggests that concise models like **FinBERT** or **VADER** are optimal for extracting polarity from this specific dataset.
 ![Headline Distribution](visuals/headline_len_dist.png)
 
-#### **C. Publication Volatility**
+#### **D. Publication Volatility**
 Massive spikes in 2020 provide high-signal windows for our upcoming correlation study.
 ![Publication Trends](visuals/publication_trends.png)
 
