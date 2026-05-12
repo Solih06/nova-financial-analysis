@@ -1,42 +1,36 @@
-# Nova Financial Analysis: News Sentiment & Stock Correlation
+# Nova Financial Analysis: Sentiment & Stock Correlation Pipeline
 
 ## 🚀 Project Overview
-This repository provides a comprehensive pipeline for identifying the **Temporal Correlation** between 1.4 million financial news headlines and stock market indicators. By bridging NLP-driven sentiment analysis with quantitative financial engineering, we determine how news volume and polarity act as leading indicators for market volatility.
+This repository implements a quantitative pipeline to analyze 1.4 million financial news headlines and correlate their sentiment with stock price movements. By combining NLP (Natural Language Processing) and financial engineering, we evaluate how market-moving news impacts asset returns.
 
-## 📁 Professional Repository Structure
-* **`.github/workflows/`**: CI/CD pipeline (`unittests.yml`) for automated testing.
-* **`notebooks/`**: 
-    * `01_eda_nlp_analysis.ipynb`: Task 1 - Headline distributions and TF-IDF analysis.
-    * `02_quantitative_analysis.ipynb`: Task 2 - Technical indicators (SMA, EMA, RSI).
-    * `03_correlation_analysis.ipynb`: Task 3 - Sentiment merging and Pearson Correlation.
-* **`scripts/`**: Modular Python implementation logic and `__init__.py` packaging.
-* **`tests/`**: Unit testing suite for environment and data logic validation.
-* **`visuals/`**: Exported plots including scatter plots and technical indicators.
-* **`requirements.txt`**: Complete project dependency manifest.
+## 📁 Repository Scaffolding
+Following professional software standards, this project is organized for modularity and scalability:
+* **`.github/workflows/`**: CI/CD integration for automated unittests.
+* **`notebooks/`**: Modularized analysis for EDA, Quant, and Correlation.
+* **`scripts/`**: Reusable Python modules with `__init__.py` for packaging.
+* **`visuals/`**: Centralized storage for all exported data visualizations.
+* **`requirements.txt`**: Complete list of dependencies (VADER, yfinance, scikit-learn).
 
-## 📊 Key Technical Insights
+## 📊 Key Technical Findings
 
 ### 1. NLP & Topic Modeling (Task 1)
-Using **TF-IDF Vectorization**, we identified that the dataset is highly concentrated on corporate "Event-Driven" news. Headlines are dense (avg 25-50 characters), making them ideal for high-frequency sentiment scoring.
-![Topic Wordcloud](./visuals/wordcloud_topics.png)
+Beyond simple word clouds, I utilized **TF-IDF Vectorization** to identify statistically significant financial topics. I also performed descriptive length analysis to justify the use of the VADER sentiment model.
+![Headline Length Distribution](./visuals/headline_length_dist.png)
 
-### 2. Quantitative Infrastructure (Task 2)
-We established a robust time-series baseline for AAPL. By implementing **SMA**, **EMA**, and **RSI**, we can track how momentum shifts coincide with news spikes. 
-* *Strategy:* Applied **Forward-Filling (ffill)** to ensure weekend news is mapped to Monday market opens.
-![Technical Analysis](./visuals/aapl_technical_indicators.png)
+### 2. Quantitative Indicators (Task 2)
+I engineered a robust time-series dataset for AAPL. By applying **SMA (Simple Moving Average)**, **EMA (Exponential Moving Average)**, and **RSI (Relative Strength Index)**, I established clear price-momentum signals.
+![Technical Indicators](./visuals/aapl_technical_indicators.png)
 
-### 3. Sentiment Correlation (Task 3)
-Using the **VADER Sentiment Intensity Analyzer**, we mapped daily compound scores against daily percentage returns.
-* **Metric:** Calculated the Pearson Correlation Coefficient to quantify the relationship strength.
-* **Visualization:** Regression plots identify the "Sentiment-Return" cluster.
-![Correlation Plot](./visuals/sentiment_stock_correlation.png)
+### 3. Sentiment-Price Correlation (Task 3)
+I synchronized 24/7 news sentiment with trading-day price action using a **forward-fill (ffill)** strategy. This allowed me to calculate the **Pearson Correlation Coefficient** and visualize the relationship between news polarity and stock returns.
+![Correlation Analysis](./visuals/sentiment_stock_correlation.png)
 
-## 🛠️ Installation & Environment Setup
+## 🛠️ Setup and Installation
 
-1. **Clone the Repository:**
+1. **Clone the repository:**
    ```bash
    git clone [https://github.com/Solih06/nova-financial-analysis.git](https://github.com/Solih06/nova-financial-analysis.git)
-   cd nova-financial-analysis
+
 2. **Setup Environment**
    ```bash
    python -m venv venv
@@ -44,6 +38,6 @@ Using the **VADER Sentiment Intensity Analyzer**, we mapped daily compound score
 3. **Install Dependencies**
    ```bash
    pip install -r requirements.txt
-4. **Run Tests**
-   ```bash
-   python -m unittest discover tests
+4. **Usage**
+   Navigate to the notebooks/ folder to view the full analysis pipeline or run the modular scripts in the scripts/ directory.
+   
