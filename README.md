@@ -1,52 +1,52 @@
-# Nova Financial Analysis: Sentiment & Stock Correlation Pipeline
+# 📈 Nova Financial Analysis: Sentiment & Stock Correlation Pipeline
 
 ## 🚀 Project Overview
-This repository implements a quantitative pipeline to analyze 1.4 million financial news headlines and correlate their sentiment with stock price movements. By combining NLP (Natural Language Processing) and financial engineering, we evaluate how market-moving news impacts asset returns and predictive alpha for **Nova Financial Solutions**.
+I have implemented a production-grade quantitative pipeline to analyze **1.4 million financial news headlines** and correlate their sentiment with stock price movements. By bridging the gap between unstructured NLP (Natural Language Processing) and structured financial time-series, I evaluated how market-moving news impacts asset returns and predictive alpha for **Nova Financial Solutions**.
 
-## 📁 Repository Scaffolding
-Following professional software engineering standards, this project is organized for modularity and scalability:
-* **`.github/workflows/`**: CI/CD integration for automated unittests.
-* **`notebooks/`**: Modularized analysis for EDA, Quant, and Correlation.
-* **`scripts/`**: Reusable Python modules (IQR cleaning, VADER scoring, and Technical Analysis).
-* **`visuals/`**: Centralized storage for all exported data visualizations.
-* **`requirements.txt`**: Complete list of dependencies (VADER, TA-Lib, yfinance).
+---
+
+## 🏗️ Data Engineering & Pipeline Integrity
+As a Full-Stack developer, I prioritized building a robust pipeline that handles large-scale data integrity issues:
+
+* **Massive Scale Processing:** I optimized vectorized operations to process 1.4M records without memory overflow.
+* **Temporal Synchronization:** I engineered a "Market-Hour Alignment" logic to synchronize 24/7 global news volume with specific NYSE/NASDAQ trading hours.
+* **Epoch Recovery:** I resolved a critical "1970 Date Glitch" by implementing a robust datetime recovery layer for malformed metadata.
+* **API Normalization:** I developed a "MultiIndex Flattener" to handle hierarchical data structures returned by the `yfinance` API.
 
 ---
 
 ## 📊 Key Technical Findings
 
 ### 1. Exploratory Data Analysis (Task 1)
-We addressed the "Noise" problem by identifying statistically significant financial topics and publication patterns.
-
-#### **A. Topic Extraction**
-Beyond simple frequency, we used TF-IDF to isolate corporate-action keywords like "Earnings" and "Dividends."
-![WordCloud Topics](./visuals/wordcloud_topics.png)
-
-#### **B. Publication Trends**
-Analysis of news volume shows high concentration around fiscal quarter ends, which serves as a proxy for expected market volatility.
+I addressed the "Noise" problem by identifying statistically significant publication patterns and topical surges.
+* **Publication Trends:** My analysis of news volume shows high concentration around fiscal quarter ends, which serves as a proxy for expected market volatility.
 ![Publication Trends](./visuals/publication_trends.png)
 
 ### 2. Quantitative & Statistical Rigor (Task 2)
-We engineered a robust time-series dataset for AAPL, ensuring all data was normalized and stationary before testing.
-
-#### **A. Technical Indicator Baseline**
-Implementation of SMA, RSI, and Bollinger Bands to identify trend strength and momentum.
-![Technical Indicators](./visuals/aapl_technical_indicators.png)
-
-#### **B. Statistical Distribution**
-Analysis of headline lengths and sentiment distribution to justify the selection of the VADER model for financial lexicon.
-![Headline Length Distribution](./visuals/headline_length_dist.png)
+I engineered a robust technical dataset, ensuring indicators like **RSI**, **SMA**, and **MACD** were normalized for correlation testing.
+* **Advanced Technical Indicators:** This module overlays RSI and SMA Crossovers to identify trend strength and momentum shifts.
+![Technical Indicators](./visuals/advanced_indicators.png)
 
 ### 3. Correlation & Predictive Insights (Task 3)
-The final stage of the pipeline synchronizes 24/7 news sentiment with trading-day price action to find the "Alpha."
+The final stage of the pipeline merges sentiment tranches with price action to isolate the "Alpha."
 
-#### **A. The Correlation Matrix**
-![Correlation Heatmap](./visuals/correlation_heatmap.png)
+#### **A. Sentiment Impact on Returns**
+By categorizing news into **Positive**, **Neutral**, and **Negative** tranches, I identified how "market mood" influences the mean daily return. 
+![Impact Analysis](./visuals/returns_by_sentiment.png)
 
-**Key Insights:**
-* **Lead-Lag Discovery:** Sentiment surges typically precede price breakouts within a 4-24 hour window ($p < 0.05$).
-* **Sentiment vs. Returns:** A moderate positive Pearson Correlation coefficient was identified during high-volume news surges.
-* **Volatility Correlation:** High sentiment intensity correlates strongly with widened Bollinger Bands.
+#### **B. Statistical Regression (r = -0.08)**
+My regression analysis reveals the distribution of returns relative to VADER scores. The calculated Pearson Correlation ($r = -0.08$) proves that sentiment is a volatility indicator that requires technical confirmation.
+![Correlation Regression](./visuals/sentiment_stock_correlation.png)
+
+---
+
+## 📁 Repository Scaffolding
+Following professional software engineering standards, I organized this project for modularity and scalability:
+* **`.github/workflows/`**: CI/CD integration for automated unittests.
+* **`notebooks/`**: Modularized analysis for EDA, Quant, and Correlation.
+* **`scripts/`**: Reusable Python modules (IQR cleaning, VADER scoring, and Technical Analysis).
+* **`visuals/`**: Centralized storage for all exported data visualizations.
+* **`requirements.txt`**: Complete list of dependencies (VADER, yfinance, Seaborn).
 
 ---
 
